@@ -3,21 +3,18 @@
 <head>
 	<title>NodeMusic</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="style.css" rel="stylesheet">
-	
-	<script type="text/javascript" src="app/gui.js"></script>
-	
+	<link href="style/style.css" rel="stylesheet">
+	<script src="loader.js"></script>
+	<script src="jspm/system.js"></script>
+	<script src="jspm.conf.js"></script>
+	<script>
+		System.import('app/main')
+			.catch(console.error.bind(console));
+	</script>
 </head>
 <body ng-app="app">
 	<div class="main" ng-controller="MyController">
 		{{greeting}}
 	</div>
-	
-	<script src="jspm/system.js"></script>
-	<script src="jspm.conf.js"></script>
-	<script>
-		System.import('app/main.ts')
-			.catch(console.error.bind(console));
-	</script>
 </body>
 </html>

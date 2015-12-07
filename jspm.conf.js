@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "/",
+  baseURL: "./",
   defaultJSExtensions: true,
   transpiler: "typescript",
   typescriptOptions: {
@@ -14,7 +14,7 @@ System.config({
   packages: {
     "app": {
       "main": "app",
-      "defaultExtension": "js"
+      "defaultExtension": "js" // Typescript is not really supported so we fallback to 'js' untill fixed
     }
   },
 

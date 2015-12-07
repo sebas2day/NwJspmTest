@@ -1,20 +1,32 @@
 var gulp = require('gulp');
 var gulp_jspm = require('gulp-jspm');
+var tsc = require('gulp-typescript');
+var watch = require('gulp-watch');
+var run = require('gulp-run');
 
-
-gulp.task('default', function(){
-    return gulp.src('src/main.ts')
-        .pipe(gulp_jspm())
-        .pipe(gulp.dest('build/'));
+var tsProject = tsc.createProject('tsconfig.json', {
+	typescript: require('typescript') // Make sure we use the latest typescript version
 });
 
+var TS_SRC = 'app/**/*.ts';
 
-gulp.task('sourcemap', function(){
-    var sourcemaps = require('gulp-sourcemaps');
+gulp.task('run', function(){
+	run('npm start').exec();
+});
 
-    return gulp.src('src/main.ts')
-        .pipe(sourcemaps.init())
+gulp.task('build', function(){
+	return gulp.src(TS_SRC)
+		.pipe(tsc(tsProject))
+		.pipe(gulp.dest('app/'));
+});
+
+gulp.task('watch', ['build', 'run'], function(){
+	gulp.watch(TS_SRC, ['build']);
+});
+
+// TODO: make this usable for distribution
+gulp.task('jspm', function(){
+    return gulp.src('app/main.js')
         .pipe(gulp_jspm())
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('build/'));
 });

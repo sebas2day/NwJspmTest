@@ -1,6 +1,6 @@
 
 function MyController($scope) {
-	$scope.greeting = 'World' + process.version;
+	$scope.greeting = 'World';
 }
 
 export = MyController;
