@@ -1,0 +1,10 @@
+body {
+	background: #888;
+	color: #fff;
+}
+
+.main {
+	width: 100px;
+	height: 100px;
+	background: #000;
+}
