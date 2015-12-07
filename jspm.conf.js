@@ -7,14 +7,14 @@ System.config({
     "emitDecoratorMetadata": true
   },
   paths: {
-    "npm:*": "jspm/npm/*",
-    "github:*": "jspm/github/*"
+    "npm:*": "../jspm/npm/*",
+    "github:*": "../jspm/github/*"
   },
 
   packages: {
     "app": {
       "main": "app",
-      "defaultExtension": "js" // Typescript is not really supported so we fallback to 'js' untill fixed
+      "defaultExtension": "js"
     }
   },
 

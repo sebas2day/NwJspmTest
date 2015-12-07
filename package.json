@@ -3,7 +3,7 @@
   "description": "nodemusic",
   "version": "1.0.0",
   "author": "Sebastiaan",
-  "main": "index.html",
+  "main": "src/index.html",
   "window": {
     "show": false,
     "toolbar": false,
@@ -30,6 +30,7 @@
   },
   "jspm": {
     "directories": {
+      "baseURL": "src",
       "packages": "jspm"
     },
     "configFile": "jspm.conf.js",

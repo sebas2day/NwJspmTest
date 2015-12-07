@@ -1,14 +1,13 @@
 var gulp = require('gulp');
 var gulp_jspm = require('gulp-jspm');
 var tsc = require('gulp-typescript');
-var watch = require('gulp-watch');
 var run = require('gulp-run');
 
 var tsProject = tsc.createProject('tsconfig.json', {
 	typescript: require('typescript') // Make sure we use the latest typescript version
 });
 
-var TS_SRC = 'app/**/*.ts';
+var TS_SRC = 'src/**/*.ts';
 
 gulp.task('run', function(){
 	run('npm start').exec();
@@ -17,7 +16,7 @@ gulp.task('run', function(){
 gulp.task('build', function(){
 	return gulp.src(TS_SRC)
 		.pipe(tsc(tsProject))
-		.pipe(gulp.dest('app/'));
+		.pipe(gulp.dest('src/'));
 });
 
 gulp.task('watch', ['build', 'run'], function(){
@@ -26,7 +25,7 @@ gulp.task('watch', ['build', 'run'], function(){
 
 // TODO: make this usable for distribution
 gulp.task('jspm', function(){
-    return gulp.src('app/main.js')
+    return gulp.src('src/app/main.js')
         .pipe(gulp_jspm())
-        .pipe(gulp.dest('build/'));
+        .pipe(gulp.dest('dist/'));
 });
