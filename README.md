@@ -1,6 +1,6 @@
 # Testing Node-webkit + JSPM + Typescript + gulp + Angularjs
 
-## Run as followed:
+### Run as followed:
 
 ```sh
 $ npm install
@@ -8,7 +8,7 @@ $ jspm update
 $ gulp watch
 ```
 
-## Developer tips:
+### Developer tips:
 
 * Press f12 for console
 * Press f5 for reload
